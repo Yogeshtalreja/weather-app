@@ -6,10 +6,10 @@ const Weather = ()=>{
 <div className="container">
 
 <div className="cards">
-    <h1>London</h1>
+    <h1>Weather Check</h1>
     <div className="py-5">
 
-        
+
     </div>
 </div>
 
