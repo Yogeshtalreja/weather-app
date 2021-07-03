@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'weather-icons/css/weather-icons.css';
-const Weather = ()=>{
+const Weather = (props)=>{
     return(
 <div>
 <div className="container">
