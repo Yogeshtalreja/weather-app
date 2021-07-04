@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'weather-icons/css/weather-icons.css';
 const Weather = (props)=>{
+    const temp = {tempr : props.data.main.temp , min_temp : props.data.main.temp_min , max_temp:props.data.main.temp_max};
     return(
 <div>
 <div className="container">
@@ -14,11 +15,11 @@ const Weather = (props)=>{
 
     </h5>
     <h1 className="py-2">
-        25&deg;
+        {Math.floor(temp.tempr-273.15)}&deg;
     </h1>
-    {minMax(23,56)}
+    {minMax(Math.floor(temp.min_temp-273.15),Math.floor(temp.max_temp-273.15))}
     <div className="py-2">
-        Slow Rain
+        {props.data.weather[0].description}
     </div>
 </div>
 

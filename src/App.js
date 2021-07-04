@@ -6,18 +6,21 @@ import {Form , Button} from 'react-bootstrap';
 function App() {
   const APIKEY = 'de66fbb1ed3365202fef510725ba0786';
   const [data,setData] = useState({});
+  const [val,setVal] = useState(false);
  const [state , setState] = useState({
    city : '',
    Country : ''
  });
    const onClick = () =>{
     console.log(state);
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${state.city},${state.Country}&appid=${APIKEY}`;
+    console.log(url); 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${state.city},${state.Country}&appid=${APIKEY}`)
     .then((res)=>res.json())
     .then((total)=>{
      setData(total);
      console.log(total);
-     
+     setVal(true);
      }
     
     );
@@ -58,11 +61,15 @@ function App() {
       Please Enter Country Name 
     </Form.Text>
   </Form.Group>
-<Button variant="primary" onClick={onClick}>
+<Button variant="primary" onClick={onClick} id='button'>
     Submit
   </Button>
 </Form>
-      <Weather data={data}/>
+{
+  val ? <Weather data={data}/>: console.log(false) 
+  }
+
+     
     </div>
   );
 }
